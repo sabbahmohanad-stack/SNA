@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using SNA.Domain.Entities.Core;
+using SNA.Domain.Entities.ProgramManagement;
 
 namespace SNA.Domain.Entities.BehaviorAnalysis
 {

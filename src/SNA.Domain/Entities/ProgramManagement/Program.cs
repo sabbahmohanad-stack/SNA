@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using SNA.Domain.Entities.BehaviorAnalysis;
 using SNA.Domain.Entities.Core;
+using SNA.Domain.Entities.Reporting;
 using SNA.Domain.Entities.SessionManagement;
 
 namespace SNA.Domain.Entities.ProgramManagement
