@@ -19,6 +19,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check domain entities against SQL schema
+        run: python3 scripts/test_domain_schema.py
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:

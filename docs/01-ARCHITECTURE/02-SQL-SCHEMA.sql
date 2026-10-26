@@ -114,6 +114,10 @@ CREATE TABLE [CaseTeamMembers] (
     [IsActive] BIT NOT NULL DEFAULT 1,
     [CreatedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
     [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+    [ModifiedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [ModifiedByUserId] UNIQUEIDENTIFIER,
+    [IsDeleted] BIT NOT NULL DEFAULT 0,
+    [Version] INT NOT NULL DEFAULT 1,
     CONSTRAINT FK_CaseTeam_Case FOREIGN KEY ([CaseId]) REFERENCES [Cases]([CaseId]),
     CONSTRAINT FK_CaseTeam_User FOREIGN KEY ([UserId]) REFERENCES [Users]([UserId]),
     CONSTRAINT FK_CaseTeam_CreatedBy FOREIGN KEY ([CreatedByUserId]) REFERENCES [Users]([UserId]),
@@ -309,6 +313,10 @@ CREATE TABLE [PromptHierarchy] (
     [Order] INT NOT NULL, -- Sequential order for fading
     [CreatedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
     [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+    [ModifiedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [ModifiedByUserId] UNIQUEIDENTIFIER,
+    [IsDeleted] BIT NOT NULL DEFAULT 0,
+    [Version] INT NOT NULL DEFAULT 1,
     CONSTRAINT FK_PromptHierarchy_ReplacementSkill FOREIGN KEY ([ReplacementSkillId]) REFERENCES [ReplacementSkills]([ReplacementSkillId])
 );
 
@@ -329,6 +337,8 @@ CREATE TABLE [Reinforcers] (
     [DateDiscontinued] DATE,
     [CreatedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
     [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+    [ModifiedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [ModifiedByUserId] UNIQUEIDENTIFIER,
     [IsDeleted] BIT NOT NULL DEFAULT 0,
     [Version] INT NOT NULL DEFAULT 1,
     CONSTRAINT FK_Reinforcers_Case FOREIGN KEY ([CaseId]) REFERENCES [Cases]([CaseId])
@@ -351,6 +361,10 @@ CREATE TABLE [GeneralizationSettings] (
     [Notes] NVARCHAR(MAX),
     [CreatedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
     [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+    [ModifiedDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [ModifiedByUserId] UNIQUEIDENTIFIER,
+    [IsDeleted] BIT NOT NULL DEFAULT 0,
+    [Version] INT NOT NULL DEFAULT 1,
     CONSTRAINT FK_GeneralizationSettings_Behavior FOREIGN KEY ([BehaviorId]) REFERENCES [Behaviors]([BehaviorId])
 );
 
